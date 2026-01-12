@@ -1,0 +1,27 @@
+import type { Metadata } from "next";
+import "./globals.css";
+import { WhatsAppButton } from "./components/WhatsappButton";
+import { Navbar } from "./components/Navbar";
+
+export const metadata: Metadata = {
+  title: "Marques Digital - Soluções tecnológicas",
+  description: "Unimos desenvolvimento web de alta performance com gestão de tráfego estratégica para tirar sua empresa do amadorismo e escalar suas vendas.",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body
+        className={`antialiased`}
+      >
+        <Navbar/>
+        {children}
+        <WhatsAppButton/>
+      </body>
+    </html>
+  );
+}

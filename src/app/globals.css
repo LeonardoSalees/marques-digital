@@ -1,0 +1,31 @@
+@import "tailwindcss"; /* Importação essencial na v4 */
+
+@theme {
+  /* Cores da Marca */
+  --color-brand-purple: #7C3AED;   /* Roxo principal */
+  --color-brand-magenta: #D946EF;  /* Magenta/Rosa da logo */
+  --color-brand-cyan: #22D3EE;     /* Ciano/Azul da logo */
+  --color-brand-black: #08070b;    /* Um preto levemente azulado/roxo */
+
+  /* Redefinindo as variáveis de sistema para usarem as da marca */
+  --color-background: var(--color-brand-black);
+  --color-foreground: #ededed;
+  
+  /* Garante que os arredondamentos funcionem */
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+}
+
+/* Reset básico para garantir o fundo escuro */
+body {
+  background-color: var(--color-brand-black);
+  color: var(--color-foreground);
+  margin: 0;
+  font-family: sans-serif; /* Ou sua fonte do Next.js */
+}
+
+html {
+  scroll-behavior: smooth;
+}
