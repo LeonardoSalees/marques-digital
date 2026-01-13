@@ -11,10 +11,6 @@ export function Faq() {
   { 
     q: "O marketing digital serve para o meu tipo de negócio?", 
     a: "Se o seu cliente tem um celular na mão, sim. Hoje, 90% das jornadas de compra começam com uma pesquisa no Google ou uma descoberta no Instagram. Se você não está lá, seu concorrente está." 
-  },
-  { 
-    q: "Eu terei acesso aos relatórios de faturamento?", 
-    a: "Com certeza. Transparência é um dos nossos pilares na Marques Digital. Você terá acesso a dashboards em tempo real para acompanhar cada real investido e o retorno gerado." 
   }
 ];
 
