@@ -9,10 +9,10 @@ export async function POST(request: Request) {
     const { nome, email, mensagem, whatsapp } = await request.json();
 
     const data = await resend.emails.send({
-      from: 'Marques Digital <onboarding@resend.dev>', // No futuro: contato@marquesdigital.com
+      from: 'Marques Digital <leonardosales.silva12@gmail.com>', // No futuro: contato@marquesdigital.com
       
       // AQUI ESTÁ O SEGREDO: Passe um array com os dois e-mails
-      to: ['nardo.doggg@gmail.com', 'email-do-eduardo@gmail.com'], 
+      to: ['nardo.doggg@gmail.com', 'marquesedu7070@gmail.com'], 
       
       subject: `NOVO LEAD: ${nome} - Marques Digital`,
       html: `
