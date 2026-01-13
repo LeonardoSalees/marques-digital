@@ -1,5 +1,11 @@
-import Typewriter from 'typewriter-effect';
+import { redirect } from "next/navigation";
+import Typewriter from "typewriter-effect";
 export function Hero() {
+  const phoneNumber = "5511972347027"; // COLOQUE O NÚMERO DO SEU AMIGO AQUI
+  const message = encodeURIComponent(
+    "Olá! Vim pelo site e gostaria de um diagnóstico gratuito do meu negócio."
+  );
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
   return (
     <section className="min-h-[90vh] flex items-center justify-center bg-brand-black px-6 pt-5 relative overflow-hidden">
       {/* Background Glows para combinar com a logo */}
@@ -28,12 +34,14 @@ export function Hero() {
           </p>
 
           <div className="flex flex-wrap gap-4 mt-4">
-            <button className="bg-gradient-to-r from-brand-purple to-brand-magenta text-white font-black px-8 py-4 rounded-lg hover:brightness-110 transition-all text-sm uppercase tracking-wider shadow-lg shadow-brand-purple/20">
+            <a
+              className="bg-gradient-to-r from-brand-purple to-brand-magenta text-white font-black px-8 py-4 rounded-lg hover:brightness-110 transition-all text-sm uppercase tracking-wider shadow-lg shadow-brand-purple/20"
+              href={whatsappUrl}
+              target="_blank"
+        rel="noopener noreferrer"
+            >
               Agendar Consultoria
-            </button>
-            <button className="border border-zinc-800 text-white px-8 py-4 rounded-lg hover:bg-zinc-900 transition-all text-sm uppercase tracking-wider">
-              Ver Cases
-            </button>
+            </a>
           </div>
         </div>
 
@@ -43,21 +51,21 @@ export function Hero() {
 
           <div className="relative bg-zinc-900/60 border border-white/5 p-10 rounded-3xl backdrop-blur-xl shadow-2xl">
             <Typewriter
-          options={{
-            strings: [
-              'Dados', 
-              'Performance', 
-              'Estratégia', 
-              'Tecnologia',
-              'Conversão'
-            ],
-            autoStart: true,
-            loop: true,
-            delay: 75,
-            deleteSpeed: 10,
-            cursor: "▋" // Cursor estilo terminal Linux
-          }}
-        />
+              options={{
+                strings: [
+                  "Dados",
+                  "Performance",
+                  "Estratégia",
+                  "Tecnologia",
+                  "Conversão",
+                ],
+                autoStart: true,
+                loop: true,
+                delay: 75,
+                deleteSpeed: 10,
+                cursor: "▋", // Cursor estilo terminal Linux
+              }}
+            />
           </div>
         </div>
       </div>

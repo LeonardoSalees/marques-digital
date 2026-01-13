@@ -1,4 +1,5 @@
 "use client";
+import { redirect } from "next/navigation";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
@@ -10,6 +11,11 @@ export function Navbar() {
     behavior: "smooth",
   });
 };
+const phoneNumber = "5511972347027"; // COLOQUE O NÚMERO DO SEU AMIGO AQUI
+  const message = encodeURIComponent(
+    "Olá! Vim pelo site e gostaria de um diagnóstico gratuito do meu negócio."
+  );
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,9 +60,11 @@ export function Navbar() {
         {/* Botão CTA com as cores novas */}
         <button className="relative group">
           <div className="absolute -inset-1 bg-gradient-to-r from-brand-purple to-brand-magenta rounded-full blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
-          <div className="relative bg-brand-black border border-white/10 text-white text-[10px] md:text-xs font-black px-5 py-2 md:px-7 md:py-3 rounded-full hover:border-brand-purple/50 transition-all">
+          <a className="relative bg-brand-black border border-white/10 text-white text-[10px] md:text-xs font-black px-5 py-2 md:px-7 md:py-3 rounded-full hover:border-brand-purple/50 transition-all" target="_blank"
+        rel="noopener noreferrer"
+        href={whatsappUrl}>
             CONSULTORIA GRÁTIS
-          </div>
+          </a>
         </button>
 
       </div>
