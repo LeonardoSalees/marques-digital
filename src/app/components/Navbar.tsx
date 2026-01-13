@@ -4,6 +4,12 @@ import { useState, useEffect } from "react";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,7 +29,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-3 flex justify-between items-center">
         
         {/* Logo baseada na imagem enviada */}
-        <div className="flex items-center gap-2 group cursor-pointer">
+        <div className="flex items-center gap-2 group cursor-pointer" onClick={scrollToTop}>
           <div className="w-8 h-8 relative">
             <Image src={'/logo.png'} width={100} height={100} alt="logo"/>
           </div>
