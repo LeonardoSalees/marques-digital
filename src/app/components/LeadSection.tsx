@@ -23,7 +23,7 @@ export function LeadSection() {
     const formData = new FormData(e.currentTarget);
 
 
-    formData.append("access_key", "SUA-CHAVE-AQUI");
+    formData.append("access_key", "3d95e88a-0d3d-4263-a69c-8a2b04b06922");
     // Adicione o e-mail do Eduardo como cópia
     formData.append("cc", "marquesedu7070@gmail.com");
 
