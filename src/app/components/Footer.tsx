@@ -9,8 +9,7 @@ export function Footer() {
           © 2026 Todos os direitos reservados. Foco em Performance.
         </p>
         <div className="flex gap-6 text-zinc-400">
-           <a href="#" className="hover:text-brand-gold transition-colors">Instagram</a>
-           <a href="#" className="hover:text-brand-gold transition-colors">LinkedIn</a>
+           <a href="https://www.instagram.com/marquesdigital_/" className="hover:text-brand-gold transition-colors">Instagram</a>
         </div>
       </div>
     </footer>
