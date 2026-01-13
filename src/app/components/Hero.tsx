@@ -1,3 +1,4 @@
+import Typewriter from 'typewriter-effect';
 export function Hero() {
   return (
     <section className="min-h-[90vh] flex items-center justify-center bg-brand-black px-6 pt-5 relative overflow-hidden">
@@ -41,73 +42,22 @@ export function Hero() {
           <div className="absolute -inset-4 bg-brand-purple/20 blur-3xl rounded-full"></div>
 
           <div className="relative bg-zinc-900/60 border border-white/5 p-10 rounded-3xl backdrop-blur-xl shadow-2xl">
-            <div className="space-y-6">
-              {/* Header: Foco em Transparência */}
-              <div className="flex justify-between items-center border-b border-zinc-800 pb-4">
-                <div>
-                  <p className="text-zinc-500 text-[10px] uppercase tracking-widest font-bold">
-                    Metodologia de Trabalho
-                  </p>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-brand-magenta rounded-full animate-pulse"></div>
-                    <p className="text-white font-bold text-sm">
-                      Análise e Otimização Diária
-                    </p>
-                  </div>
-                </div>
-                <div className="bg-brand-purple/10 px-3 py-1 rounded-full border border-brand-purple/20">
-                  <p className="text-brand-purple text-[10px] font-bold uppercase">
-                    Foco em Performance
-                  </p>
-                </div>
-              </div>
-
-              {/* Frase de Posicionamento (Substituindo o depoimento falso) */}
-              <div className="space-y-2">
-                <p className="text-zinc-300 text-sm italic font-medium leading-relaxed">
-                  "Trabalhamos com transparência total: nosso objetivo é fazer o
-                  seu investimento retornar em leads qualificados e vendas
-                  reais."
-                </p>
-                <p className="text-zinc-500 text-[10px] uppercase tracking-wider font-bold">
-                  — Nosso Compromisso
-                </p>
-              </div>
-
-              {/* Grid de Pilares (Substituindo métricas por promessas de serviço) */}
-              <div className="grid grid-cols-2 gap-4 pt-2">
-                <div className="bg-brand-black/50 border border-zinc-800 p-5 rounded-2xl group hover:border-brand-purple/40 transition-colors">
-                  <p className="text-zinc-500 text-[10px] uppercase font-bold mb-2">
-                    Pilar 01
-                  </p>
-                  <p className="text-white font-bold text-lg leading-tight">
-                    Decisões em Dados
-                  </p>
-                  <p className="text-brand-purple text-[10px] mt-2 font-medium">
-                    Análise minuciosa
-                  </p>
-                </div>
-
-                <div className="bg-brand-black/50 border border-zinc-800 p-5 rounded-2xl group hover:border-brand-purple/40 transition-colors">
-                  <p className="text-zinc-500 text-[10px] uppercase font-bold mb-2">
-                    Pilar 02
-                  </p>
-                  <p className="text-white font-bold text-lg leading-tight">
-                    Escala Viável
-                  </p>
-                  <p className="text-brand-magenta text-[10px] mt-2 font-medium">
-                    Crescimento constante
-                  </p>
-                </div>
-              </div>
-
-              {/* Rodapé: Especialidades do seu amigo e as suas */}
-              <div className="bg-brand-purple/5 p-3 rounded-xl border border-brand-purple/10 text-center">
-                <p className="text-brand-purple text-[11px] font-bold uppercase tracking-tight">
-                  Estratégia Digital & Desenvolvimento Web
-                </p>
-              </div>
-            </div>
+            <Typewriter
+          options={{
+            strings: [
+              'Dados', 
+              'Performance', 
+              'Estratégia', 
+              'Tecnologia',
+              'Conversão'
+            ],
+            autoStart: true,
+            loop: true,
+            delay: 75,
+            deleteSpeed: 10,
+            cursor: "▋" // Cursor estilo terminal Linux
+          }}
+        />
           </div>
         </div>
       </div>

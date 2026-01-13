@@ -15,7 +15,7 @@ export function WhatsAppButton() {
     return () => clearTimeout(timer);
   }, []);
 
-  const phoneNumber = "5511999999999"; // COLOQUE O NÚMERO DO SEU AMIGO AQUI
+  const phoneNumber = "5511972347027"; // COLOQUE O NÚMERO DO SEU AMIGO AQUI
   const message = encodeURIComponent("Olá! Vim pelo site e gostaria de um diagnóstico gratuito do meu negócio.");
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 

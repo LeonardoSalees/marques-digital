@@ -5,6 +5,7 @@ import { Services } from "./components/Services";
 import { LeadSection } from "./components/LeadSection";
 import { Footer } from "./components/Footer";
 import { Faq } from "./components/Faq";
+import { Workflow } from "./components/Workflow";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
     >
       <Hero />
       <Services />
+      <Workflow/>
       <LeadSection />
       <Faq/>/
       <Footer />

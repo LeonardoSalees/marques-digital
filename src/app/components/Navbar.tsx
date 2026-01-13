@@ -34,7 +34,7 @@ export function Navbar() {
 
         {/* Links Desktop - Ocultos no Mobile */}
         <div className="hidden md:flex items-center gap-8">
-          {['Serviços', 'FAQ'].map((item) => (
+          {['Serviços', 'workflow', 'Contatos', 'FAQ'].map((item) => (
             <a 
               key={item} 
               href={item === 'Serviços' ? '#services' : `#${item.toLowerCase()}`}
