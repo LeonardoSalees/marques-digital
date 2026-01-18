@@ -64,7 +64,7 @@ export default function SelecaoPage() {
 
       <div className="relative z-10">
         {/* Banner de Sorteio Gratuito */}
-        <div className="bg-gradient-to-r from-brand-purple via-brand-magenta to-brand-cyan py-2 text-center">
+        <div className="bg-gradient-to-r from-brand-purple via-brand-magenta to-brand-cyan py-2 mt-20 text-center">
           <p className="text-[10px] font-black uppercase tracking-[0.4em] text-white">
             SORTEIO 100% GRATUITO • 03 VAGAS DISPONÍVEIS
           </p>
