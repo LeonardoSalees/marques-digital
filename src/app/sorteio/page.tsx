@@ -10,8 +10,17 @@ import {
   Smartphone,
   ShieldCheck,
   Gift,
-} from "lucide-react"; 
+} from "lucide-react";
 import { Faq } from "../components/Faq";
+
+export const metadata = {
+  title: "Sorteio Impulso Digital | Marques Digital",
+  description:
+    "Participe do sorteio e ganhe uma estrutura digital de elite para o seu negócio. 03 vagas gratuitas!",
+  openGraph: {
+    images: ["/og-image.png"], 
+  },
+};
 
 const faqs = [
   {
@@ -33,21 +42,31 @@ const faqs = [
   {
     q: "Como saberei se fui um dos 3 ganhadores?",
     a: "Nossa equipe entrará em contato diretamente via WhatsApp e e-mail com os selecionados após o encerramento do cronômetro e análise das descrições enviadas.",
-  }
+  },
 ];
 
 export default function SelecaoPage() {
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, mins: 0, secs: 0 });
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    mins: 0,
+    secs: 0,
+  });
 
   useEffect(() => {
-    const targetDate = new Date("2026-01-25T00:00:00").getTime(); 
+    const targetDate = new Date("2026-01-25T00:00:00").getTime();
     const interval = setInterval(() => {
       const now = new Date().getTime();
       const distance = targetDate - now;
-      if (distance < 0) { clearInterval(interval); return; }
+      if (distance < 0) {
+        clearInterval(interval);
+        return;
+      }
       setTimeLeft({
         days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        hours: Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+        ),
         mins: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
         secs: Math.floor((distance % (1000 * 60)) / 1000),
       });
@@ -71,16 +90,36 @@ export default function SelecaoPage() {
         </div>
 
         {/* Timer */}
-        <div className="sticky top-0 z-50 bg-brand-black/80 backdrop-blur-md border-b border-white/5 py-4">
+        <div className="sticky top-0 z-50 min-h-[60px] flex items-center bg-brand-black/80 backdrop-blur-md border-b border-white/5 py-4">
           <div className="max-w-4xl mx-auto flex justify-center items-center gap-6 px-6">
             <span className="text-[10px] font-black uppercase tracking-widest text-zinc-500 hidden md:block italic">
               O sorteio encerra em:
             </span>
             <div className="flex gap-4 font-black italic text-brand-cyan text-xl">
-              <div className="flex flex-col items-center leading-none">{timeLeft.days}<span className="text-[8px] uppercase not-italic text-zinc-600">dias</span></div>
-              <div className="flex flex-col items-center leading-none">{timeLeft.hours}<span className="text-[8px] uppercase not-italic text-zinc-600">hrs</span></div>
-              <div className="flex flex-col items-center leading-none">{timeLeft.mins}<span className="text-[8px] uppercase not-italic text-zinc-600">min</span></div>
-              <div className="flex flex-col items-center leading-none text-brand-purple w-8">{timeLeft.secs}<span className="text-[8px] uppercase not-italic text-zinc-600">seg</span></div>
+              <div className="flex flex-col items-center leading-none">
+                {timeLeft.days}
+                <span className="text-[8px] uppercase not-italic text-zinc-600">
+                  dias
+                </span>
+              </div>
+              <div className="flex flex-col items-center leading-none">
+                {timeLeft.hours}
+                <span className="text-[8px] uppercase not-italic text-zinc-600">
+                  hrs
+                </span>
+              </div>
+              <div className="flex flex-col items-center leading-none">
+                {timeLeft.mins}
+                <span className="text-[8px] uppercase not-italic text-zinc-600">
+                  min
+                </span>
+              </div>
+              <div className="flex flex-col items-center leading-none text-brand-purple w-8">
+                {timeLeft.secs}
+                <span className="text-[8px] uppercase not-italic text-zinc-600">
+                  seg
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -88,10 +127,12 @@ export default function SelecaoPage() {
         <header className="py-20 px-6 text-center">
           <div className="inline-flex items-center gap-2 mb-6 px-4 py-1 border border-brand-cyan/30 bg-brand-cyan/5 rounded-full">
             <Gift size={14} className="text-brand-cyan" />
-            <span className="text-[10px] font-black uppercase tracking-widest text-brand-cyan">Oportunidade Gratuita</span>
+            <span className="text-[10px] font-black uppercase tracking-widest text-brand-cyan">
+              Oportunidade Gratuita
+            </span>
           </div>
-          
-          <h1 className="text-5xl md:text-8xl font-black italic uppercase leading-[0.9] tracking-tighter mb-8">
+
+          <h1 className="text-4xl md:text-8xl font-black italic uppercase leading-[0.9] tracking-tighter mb-8">
             SORTEIO <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple via-brand-magenta to-brand-cyan">
               IMPULSO DIGITAL
@@ -99,11 +140,16 @@ export default function SelecaoPage() {
           </h1>
 
           <p className="max-w-2xl mx-auto text-zinc-400 text-sm md:text-base leading-relaxed">
-            Estamos sorteando a criação de <span className="text-white font-bold">03 estruturas digitais completas</span> para transformar o seu negócio. Inscrição 100% gratuita para empresas e profissionais autônomos.
+            Estamos sorteando a criação de{" "}
+            <span className="text-white font-bold">
+              03 estruturas digitais completas
+            </span>{" "}
+            para transformar o seu negócio. Inscrição 100% gratuita para
+            empresas e profissionais autônomos.
           </p>
 
           {/* Vídeo de Convite */}
-          <div className="max-w-3xl mx-auto mt-12 aspect-video bg-zinc-900 rounded-[2.5rem] border border-white/10 overflow-hidden relative group cursor-pointer shadow-2xl">
+          <div className="max-w-3xl mx-auto mt-12 aspect-video bg-zinc-900 rounded-[2rem] md:rounded-[2.5rem] border border-white/10 overflow-hidden relative shadow-xl md:shadow-2xl">
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/40 group-hover:bg-black/20 transition-all z-20">
               <div className="w-16 h-16 md:w-20 md:h-20 bg-brand-purple rounded-full flex items-center justify-center pl-2 shadow-[0_0_30px_rgba(124,58,237,0.5)] group-hover:scale-110 transition-transform">
                 <Play className="text-white fill-current" size={28} />
@@ -121,24 +167,55 @@ export default function SelecaoPage() {
             <div>
               <h2 className="text-3xl md:text-4xl font-black italic uppercase mb-6 leading-none">
                 Prêmios para os <br />
-                <span className="text-brand-cyan font-black">03 sorteados:</span>
+                <span className="text-brand-cyan font-black">
+                  03 sorteados:
+                </span>
               </h2>
               <p className="text-zinc-400 text-sm mb-8 leading-relaxed">
-                Cada ganhador receberá uma consultoria e implementação tecnológica avaliada em <span className="text-white font-bold">R$ 2.500,00</span> sem custo algum.
+                Cada ganhador receberá uma consultoria e implementação
+                tecnológica avaliada em{" "}
+                <span className="text-white font-bold">R$ 2.500,00</span> sem
+                custo algum.
               </p>
               <div className="p-4 bg-brand-cyan/10 border border-brand-cyan/20 rounded-2xl inline-block">
-                 <p className="text-[10px] uppercase font-black text-brand-cyan tracking-widest italic">Inscrição Grátis</p>
+                <p className="text-[10px] uppercase font-black text-brand-cyan tracking-widest italic">
+                  Inscrição Grátis
+                </p>
               </div>
             </div>
 
             <div className="grid grid-cols-1 gap-6">
               {[
-                { icon: <Monitor size={18} />, t: "Landing Page ou Site", d: "Design de elite para Dentistas, Advogados e Serviços." },
-                { icon: <BarChart3 size={18} />, t: "API de Conversão", d: "Rastreamento profissional para seus anúncios." },
-                { icon: <Zap size={18} />, t: "Velocidade Máxima", d: "Site ultra-rápido desenvolvido em Next.js 14." },
-                { icon: <Rocket size={18} />, t: "Estratégia de Vendas", d: "Copywriting focado em converter leads qualificados." },
-                { icon: <Smartphone size={18} />, t: "Totalmente Mobile", d: "Experiência perfeita em todos os celulares." },
-                { icon: <ShieldCheck size={18} />, t: "Suporte Inicial", d: "Acompanhamento para colocar sua estrutura no ar." },
+                {
+                  icon: <Monitor size={18} />,
+                  t: "Landing Page ou Site",
+                  d: "Design de elite para Dentistas, Advogados e Serviços.",
+                },
+                {
+                  icon: <BarChart3 size={18} />,
+                  t: "API de Conversão",
+                  d: "Rastreamento profissional para seus anúncios.",
+                },
+                {
+                  icon: <Zap size={18} />,
+                  t: "Velocidade Máxima",
+                  d: "Site ultra-rápido desenvolvido em Next.js 14.",
+                },
+                {
+                  icon: <Rocket size={18} />,
+                  t: "Estratégia de Vendas",
+                  d: "Copywriting focado em converter leads qualificados.",
+                },
+                {
+                  icon: <Smartphone size={18} />,
+                  t: "Totalmente Mobile",
+                  d: "Experiência perfeita em todos os celulares.",
+                },
+                {
+                  icon: <ShieldCheck size={18} />,
+                  t: "Suporte Inicial",
+                  d: "Acompanhamento para colocar sua estrutura no ar.",
+                },
               ].map((item, i) => (
                 <div key={i} className="flex gap-4 items-start group">
                   <div className="mt-1 bg-brand-purple/20 p-2 rounded-xl text-brand-purple group-hover:text-brand-cyan transition-colors italic">
@@ -160,7 +237,7 @@ export default function SelecaoPage() {
           buttonText="QUERO PARTICIPAR DO SORTEIO"
           campaignSource="sorteio_impulso_digital_3_vagas"
         />
-        
+
         <Faq faqs={faqs} />
       </div>
     </main>
