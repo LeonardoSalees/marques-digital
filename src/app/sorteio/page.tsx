@@ -13,15 +13,6 @@ import {
 } from "lucide-react";
 import { Faq } from "../components/Faq";
 
-export const metadata = {
-  title: "Sorteio Impulso Digital | Marques Digital",
-  description:
-    "Participe do sorteio e ganhe uma estrutura digital de elite para o seu negócio. 03 vagas gratuitas!",
-  openGraph: {
-    images: ["/og-image.png"],
-  },
-};
-
 const faqs = [
   {
     q: "O sorteio é realmente gratuito?",
