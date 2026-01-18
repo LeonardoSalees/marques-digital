@@ -18,7 +18,7 @@ export const metadata = {
   description:
     "Participe do sorteio e ganhe uma estrutura digital de elite para o seu negócio. 03 vagas gratuitas!",
   openGraph: {
-    images: ["/og-image.png"], 
+    images: ["/og-image.png"],
   },
 };
 
@@ -96,29 +96,17 @@ export default function SelecaoPage() {
               O sorteio encerra em:
             </span>
             <div className="flex gap-4 font-black italic text-brand-cyan text-xl">
-              <div className="flex flex-col items-center leading-none">
-                {timeLeft.days}
-                <span className="text-[8px] uppercase not-italic text-zinc-600">
-                  dias
-                </span>
+              <div className="w-[45px] tabular-nums text-center">
+                {timeLeft.days}d
               </div>
-              <div className="flex flex-col items-center leading-none">
-                {timeLeft.hours}
-                <span className="text-[8px] uppercase not-italic text-zinc-600">
-                  hrs
-                </span>
+              <div className="w-[45px] tabular-nums text-center">
+                {timeLeft.hours}h
               </div>
-              <div className="flex flex-col items-center leading-none">
-                {timeLeft.mins}
-                <span className="text-[8px] uppercase not-italic text-zinc-600">
-                  min
-                </span>
+              <div className="w-[45px] tabular-nums text-center">
+                {timeLeft.mins}m
               </div>
-              <div className="flex flex-col items-center leading-none text-brand-purple w-8">
-                {timeLeft.secs}
-                <span className="text-[8px] uppercase not-italic text-zinc-600">
-                  seg
-                </span>
+              <div className="w-[45px] tabular-nums text-center text-brand-purple">
+                {timeLeft.secs}s
               </div>
             </div>
           </div>
@@ -132,13 +120,12 @@ export default function SelecaoPage() {
             </span>
           </div>
 
-          <h1 className="text-4xl md:text-8xl font-black italic uppercase leading-[0.9] tracking-tighter mb-8">
+          <h1 className="text-5xl md:text-8xl font-black italic uppercase leading-[0.9] tracking-tighter mb-8 [text-rendering:optimizeSpeed]">
             SORTEIO <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple via-brand-magenta to-brand-cyan">
               IMPULSO DIGITAL
             </span>
           </h1>
-
           <p className="max-w-2xl mx-auto text-zinc-400 text-sm md:text-base leading-relaxed">
             Estamos sorteando a criação de{" "}
             <span className="text-white font-bold">
