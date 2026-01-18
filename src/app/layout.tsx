@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { WhatsAppButton } from "./components/WhatsappButton";
 import { Navbar } from "./components/Navbar";
+import { Footer } from "./components/Footer";
 
 export const metadata: Metadata = {
   title: "Marques Digital - Soluções tecnológicas",
@@ -21,6 +22,9 @@ export default function RootLayout({
         <Navbar/>
         {children}
         <WhatsAppButton/>
+    
+        <Footer/>
+     
       </body>
     </html>
   );

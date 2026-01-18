@@ -2,7 +2,13 @@
 import { useState } from "react";
 import { PatternFormat } from "react-number-format";
 
-export function LeadSection() {
+interface LeadSectionProps {
+  buttonText?: string; // O "?" indica que é opcional
+  campaignSource?: string; // Útil para sua análise de dados
+}
+
+export function LeadSection({buttonText = "SOLICITAR ANÁLISE GRATUITA", // Valor padrão
+  campaignSource = "site_direto"}: LeadSectionProps) {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState("");
   const [lastSubmit, setLastSubmit] = useState(0);
@@ -133,6 +139,9 @@ export function LeadSection() {
             ></textarea>
           </div>
 
+          {/* CAMPO OCULTO: Para você saber de onde veio o lead */}
+          <input type="hidden" name="origem" value={campaignSource} />
+
           <button
             disabled={loading}
             className={`md:col-span-2 relative group mt-4 overflow-hidden rounded-2xl transition-all ${
@@ -141,7 +150,7 @@ export function LeadSection() {
           >
             <div className="absolute inset-0 bg-gradient-to-r from-brand-purple via-brand-magenta to-brand-cyan"></div>
             <div className="relative py-5 text-white font-black uppercase tracking-[0.2em] text-sm">
-              {loading ? "PROCESSANDO..." : "SOLICITAR ANÁLISE GRATUITA"}
+              {loading ? "PROCESSANDO..." : buttonText}
             </div>
           </button>
 
