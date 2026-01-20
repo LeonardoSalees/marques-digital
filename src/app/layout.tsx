@@ -27,7 +27,7 @@ export default function RootLayout({
           <SorteioBanner />
           <Navbar />
         </header>
-        <main>
+        <main className="pt-[100px] md:pt-[100px]">
           {children}
         <WhatsAppButton />
 

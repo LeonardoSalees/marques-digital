@@ -95,7 +95,7 @@ export function Services() {
   ];
 
   return (
-    <section className="py-24 bg-brand-black px-6" id="services">
+    <section className="py-24 bg-brand-black px-6 mt-10" id="services">
       <div className="max-w-6xl mx-auto">
         <div className="mb-16">
           <h2 className="text-brand-gold font-bold text-sm uppercase tracking-widest mb-4">

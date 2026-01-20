@@ -3,11 +3,11 @@ import Typewriter from "typewriter-effect";
 export function Hero() {
   const phoneNumber = "5511972347027"; // COLOQUE O NÚMERO DO SEU AMIGO AQUI
   const message = encodeURIComponent(
-    "Olá! Vim pelo site e gostaria de um diagnóstico gratuito do meu negócio."
+    "Olá! Vim pelo site e gostaria de um diagnóstico gratuito do meu negócio.",
   );
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
   return (
-    <section className="min-h-[90vh] flex items-center justify-center bg-brand-black px-6 pt-5 relative overflow-hidden">
+    <section className="min-h-[85vh] flex items-center justify-center bg-brand-black px-6 pt-5 relative overflow-hidden">
       {/* Background Glows para combinar com a logo */}
       <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-brand-purple/10 blur-[120px] rounded-full"></div>
 
@@ -38,7 +38,7 @@ export function Hero() {
               className="bg-gradient-to-r from-brand-purple to-brand-magenta text-white font-black px-8 py-4 rounded-lg hover:brightness-110 transition-all text-sm uppercase tracking-wider shadow-lg shadow-brand-purple/20"
               href={whatsappUrl}
               target="_blank"
-        rel="noopener noreferrer"
+              rel="noopener noreferrer"
             >
               Agendar Consultoria
             </a>
@@ -68,6 +68,40 @@ export function Hero() {
             />
           </div>
         </div>
+      </div>
+      {/* Seta de Indução Visual */}
+      <div className="absolute z-50 bottom-1 left-1/2 -translate-x-1/2 ...">
+        <a href="#services" className="hover:scale-110 transition-transform">
+          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
+            {/* Texto em Português sutil */}
+            <span className="text-[9px] font-black uppercase tracking-[0.4em] text-zinc-500 italic ml-1">
+              Explorar
+            </span>
+
+            {/* Container da Seta com Animação */}
+            <div className="relative flex items-center justify-center">
+              {/* Círculo de pulsação ao fundo (opcional para dar mais destaque) */}
+              <div className="absolute w-8 h-8 bg-brand-purple/20 rounded-full animate-ping" />
+
+              {/* A Seta em si */}
+              <div className="relative animate-bounce">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-brand-cyan"
+                >
+                  <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
       </div>
     </section>
   );
