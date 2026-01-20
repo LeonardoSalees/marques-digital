@@ -43,7 +43,7 @@ export function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+      className={`relative w-full z-50 transition-all duration-500 ${
         scrolled
           ? "bg-brand-black/70 backdrop-blur-lg border-b border-brand-purple/20 py-4 shadow-[0_4px_30px_rgba(124,58,237,0.1)]"
           : "bg-transparent py-6"
