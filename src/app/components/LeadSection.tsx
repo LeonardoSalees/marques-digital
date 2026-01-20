@@ -1,4 +1,5 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { PatternFormat } from "react-number-format";
 
@@ -11,6 +12,7 @@ export function LeadSection({
   buttonText = "SOLICITAR ANÁLISE GRATUITA",
   campaignSource = "site_direto"
 }: LeadSectionProps) {
+  const router = useRouter()
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState("");
   const [lastSubmit, setLastSubmit] = useState(0);
@@ -67,6 +69,7 @@ export function LeadSection({
         setStatus("Inscrição confirmada com sucesso!");
         setLastSubmit(now);
         formElement.reset();
+        router.push("/sorteio/sucesso")
       } else {
         setStatus("Erro ao processar. Tente novamente.");
       }
