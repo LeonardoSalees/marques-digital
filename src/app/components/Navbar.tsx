@@ -1,6 +1,7 @@
 "use client";
 import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 export function Navbar() {
@@ -8,25 +9,27 @@ export function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
 
-  // Verifica se o usuário está na página de seleção/sorteio
-  const isSelecaoPage = pathname === "/selecao";
+  // REGRA AUTOMÁTICA: 
+  // Se o pathname for diferente de "/", significa que estamos em uma página interna.
+  const isInternalPage = pathname !== "/";
+
+  const getNavLink = (id: string) => {
+    // Se estou em uma página interna (ex: /sorteio, /servicos, /qualquer-coisa)
+    // o link automaticamente ganha a "/" na frente.
+    return isInternalPage ? `/#${id}` : `#${id}`;
+  };
 
   const handleLogoClick = () => {
-    if (isSelecaoPage) {
-      // Se estiver na página de sorteio, vai para a Home
+    if (isInternalPage) {
       router.push("/");
     } else {
-      // Se já estiver na Home, sobe para o topo
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
   const phoneNumber = "5511972347027";
   const message = encodeURIComponent(
-    "Olá! Vim pelo site e gostaria de um diagnóstico gratuito do meu negócio.",
+    "Olá! Vim pelo site e gostaria de um diagnóstico gratuito do meu negócio."
   );
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
@@ -47,7 +50,8 @@ export function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
-        {/* Logo Dinâmico */}
+        
+        {/* Logo Dinâmica */}
         <div
           className="flex items-center gap-2 group cursor-pointer"
           onClick={handleLogoClick}
@@ -70,28 +74,23 @@ export function Navbar() {
           </span>
         </div>
 
-        {/* Links Desktop - Só aparecem na Home para não distrair no Sorteio */}
-        {!isSelecaoPage ? (
-          <div className="hidden md:flex items-center gap-8">
-            {["Serviços", "workflow", "Contatos", "FAQ"].map((item) => (
-              <a
-                key={item}
-                href={
-                  item === "Serviços" ? "#services" : `#${item.toLowerCase()}`
-                }
-                className="text-zinc-400 text-xs font-bold uppercase tracking-widest hover:text-brand-purple transition-colors"
-              >
-                {item}
-              </a>
-            ))}
-          </div>
-        ) : (
-          <div className="hidden md:block">
-            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500">
-              Projeto Impulso Digital
-            </span>
-          </div>
-        )}
+        {/* Links de Navegação Dinâmicos */}
+        <div className="hidden md:flex items-center gap-8">
+          {[
+            { label: "Serviços", id: "services" },
+            { label: "Workflow", id: "workflow" },
+            { label: "Contatos", id: "contatos" },
+            { label: "FAQ", id: "faq" },
+          ].map((item) => (
+            <Link
+              key={item.id}
+              href={getNavLink(item.id)}
+              className="text-zinc-400 text-[10px] font-bold uppercase tracking-widest hover:text-brand-purple transition-colors"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
 
         {/* Botão CTA */}
         <button className="relative group">
@@ -102,7 +101,7 @@ export function Navbar() {
             rel="noopener noreferrer"
             href={whatsappUrl}
           >
-            {isSelecaoPage ? "FALAR NO WHATSAPP" : "CONSULTORIA GRÁTIS"}
+            {isInternalPage ? "FALAR NO WHATSAPP" : "CONSULTORIA GRÁTIS"}
           </a>
         </button>
       </div>
