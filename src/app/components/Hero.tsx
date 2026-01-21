@@ -21,7 +21,7 @@ export function Hero() {
           </div>
 
           <h1 className="text-5xl md:text-7xl font-black text-white leading-[1.1] tracking-tight">
-            Menos cliques, <br />
+            Menos custos, <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-magenta">
               Mais lucro.
             </span>
